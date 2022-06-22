@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<style>
+    audio{
+        display:none;
+    }
+</style>
+</head>
+<body>
+
+<h1>This is a Heading</h1>
+<p>This is a paragraph.</p>
+
+<button id="playbutton"> play </button>
+<button id="pausebutton"> pause </button>
+
+<audio id="start" controls> <source type ="audio/wav" src ="./Split/01-Start.wav"></audio>
+<audio id="0" controls> <source type ="audio/wav" src="./Split/02-Granddad.wav"></audio>
+<audio id="1" controls> <source type ="audio/wav" src="./Split/03-Gourmet Race.wav"></audio>
+<audio id="2" controls> <source type ="audio/wav" src="./Split/04-Super bell hill .wav"></audio>
+<audio id="3" controls> <source type ="audio/wav" src="./Split/05-GameXplain theme.wav"></audio>
+<audio id="4" controls> <source type ="audio/wav" src="./Split/06-Route1.wav"></audio>
+<audio id="5" controls> <source type ="audio/wav" src="./Split/07-Snow Halation.wav"></audio>
+<audio id="6" controls> <source type ="audio/wav" src="./Split/08-William Tell Overture + Turkey in the Straw.wav"></audio>
+<audio id="7" controls> <source type ="audio/wav" src="./Split/09-Patched Pathway.wav"></audio>
+<audio id="8" controls> <source type ="audio/wav" src="./Split/10-Athletic.wav"></audio>
+<audio id="9" controls> <source type ="audio/wav" src="./Split/11-Apples to the core.wav"></audio>
+<audio id="10" controls> <source type ="audio/wav" src="./Split/12-We are number one.wav"></audio>
+<audio id="11" controls> <source type ="audio/wav" src="./Split/13-Spiral Mountain.wav"></audio>
+<audio id="12" controls> <source type ="audio/wav" src="./Split/15-Nutshack.wav"></audio>
+<audio id="13" controls> <source type ="audio/wav" src="./Split/16-My life as a teenage robot.wav"></audio>
+<audio id="14" controls> <source type ="audio/wav" src="./Split/17-I play pokemon go.wav"></audio>
+<audio id="15" controls> <source type ="audio/wav" src="./Split/18-Hare Hare Yukai.wav"></audio>
+<audio id="16" controls> <source type ="audio/wav" src="./Split/19-Go my way.wav"></audio>
+<audio id="17" controls> <source type ="audio/wav" src="./Split/20-Kill la kill.wav"></audio>
+<audio id="18" controls> <source type ="audio/wav" src="./Split/21-Toreador song.wav"></audio>
+<audio id="19" controls> <source type ="audio/wav" src="./Split/22-Yakety Sax.wav"></audio>
+<audio id="20" controls> <source type ="audio/wav" src="./Split/23-Little einsteins theme.wav"></audio>
+<audio id="21" controls> <source type ="audio/wav" src="./Split/24-Fever.wav"></audio>
+<audio id="22" controls> <source type ="audio/wav" src="./Split/25-Take on me.wav"></audio>
+<audio id="23" controls> <source type ="audio/wav" src="./Split/26-A true, true friend.wav"></audio>
+<audio id="24" controls> <source type ="audio/wav" src="./Split/27-Uncle Fucker.wav"></audio>
+<audio id="25" controls> <source type ="audio/wav" src="./Split/28-All star.wav"></audio>
+<audio id="26" controls> <source type ="audio/wav" src="./Split/29-Legen of Zelda main theme.wav"></audio>
+<audio id="27" controls> <source type ="audio/wav" src="./Split/30-Dogsong.wav"></audio>
+<audio id="28" controls> <source type ="audio/wav" src="./Split/31-Woodman's theme.wav"></audio>
+<audio id="29" controls> <source type ="audio/wav" src="./Split/32-Let it go.wav"></audio>
+<audio id="30" controls> <source type ="audio/wav" src="./Split/33-Nyan Cat.wav"></audio>
+<audio id="31" controls> <source type ="audio/wav" src="./Split/34-Don't stop believing.wav"></audio>
+<audio id="32" controls> <source type ="audio/wav" src="./Split/35-Die young.wav"></audio>
+<audio id="33" controls> <source type ="audio/wav" src="./Split/36-Gravity falls theme.wav"></audio>
+<audio id="34" controls> <source type ="audio/wav" src="./Split/37-Friday.wav"></audio>
+<audio id="35" controls> <source type ="audio/wav" src="./Split/38-Splatfest theme.wav"></audio>
+<audio id="36" controls> <source type ="audio/wav" src="./Split/39-Witch doctor.wav"></audio>
+<audio id="37" controls> <source type ="audio/wav" src="./Split/40-Scatman's world.wav"></audio>
+<audio id="38" controls> <source type ="audio/wav" src="./Split/41-Crazy noisy bizarre town.wav"></audio>
+<audio id="39" controls> <source type ="audio/wav" src="./Split/42-Flock step + built to scale.wav"></audio>
+<audio id="40" controls> <source type ="audio/wav" src="./Split/43-Never gonna give you up.wav"></audio>
+<audio id="41" controls> <source type ="audio/wav" src="./Split/44-Miss kobayashi's dragon main.wav"></audio>
+<audio id="42" controls> <source type ="audio/wav" src="./Split/45-Night of nights + Red Zone + Hammer theme + PoPiPo.wav"></audio>
+<audio id="43" controls> <source type ="audio/wav" src="./Split/46-Caramelldansen.wav"></audio>
+<audio id="44" controls> <source type ="audio/wav" src="./Split/47-Grandad Returns.wav"></audio>
+
+</body>
+
+<script>
+    const clips = [];
+
+    var startAudio = document.getElementById("start");
+    startAudio.onended = function(){randomClip()};
+
+    var currentclip = startAudio;
+
+    
+
+    for (let i = 0; i < 45; i++){
+        clips[i] = document.getElementById(i.toString());
+        clips[i].onended = function(){randomClip()};
+    }
+
+    document.getElementById("playbutton").onclick = function(){
+        currentclip.play();
+    };
+    document.getElementById("pausebutton").onclick = function(){
+        currentclip.pause();
+    };
+
+    function randomClip (){
+        var newClip = clips[Math.floor(Math.random()*clips.length)];
+        if(currentclip != newClip){
+            currentclip = newClip;
+            currentclip.currentTime = 0;
+            currentclip.play();
+        } else {
+            randomClip();
+        }
+    }    
+</script>
+
+</html>
